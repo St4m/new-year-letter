@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy New Year ❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 600px;
+      padding: 40px;
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      background: #ff6f91;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: #ff3f6c;
+      transform: scale(1.05);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-120vh) translateX(30px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="screen1">
+    <h1>Happy New Year, Жаным 🎆</h1>
+    <p>
+      I know it is not much, but it would be impossible to not gift a person like ✨You✨ this year 💖
+      <br />
+      Please click the button and take a moment
+    </p>
+    <button onclick="nextScreen()">Click to continue</button>
+  </div>
+
+  <div class="container hidden" id="screen2">
+    <h1>About This Year 💖</h1>
+    <p>
+      This year meant so much to me because of ✨You✨.
+      <br />
+      Every talk we had, every text we had, every second we shared together was a blessing ❤️
+      <br />
+      Being able to see ✨You✨ smile and being the reason for ✨Your✨ beautiful smile made my days go brighter, and brought butterflies to my heart ❤️
+    </p>
+    <button onclick="nextScreen()">Next</button>
+  </div>
+
+  <div class="container hidden" id="screen3">
+    <h1>What I Love About ✨You✨</h1>
+    <p>
+      I love the way you are,
+      <br />
+      the way ✨You✨ stand strong every day, even if it might feel like ✨You✨ are being lazy or unmotivated
+      <br />
+      ✨You✨ are staying up and moving forward
+      <br />
+      there are no words that can express how I am proud and in Love with ✨You✨
+    </p>
+    <button onclick="nextScreen()">Next</button>
+  </div>
+
+  <div class="container hidden" id="screen4">
+    <h1>InshaAllah and hopefully this year will be a great opportunity for Us to catch Our Dreams🌙</h1>
+    <p>
+      In the new year, I wish for more memorable and lovely memories,
+      <br />
+      more laughter, more success
+      <br />
+      and more moments together ❤️
+    </p>
+    <button onclick="nextScreen()">Final message</button>
+  </div>
+
+  <div class="container hidden" id="screen5">
+    <h1>Thank ✨You✨ ❤️</h1>
+    <p>
+      Thank ✨You✨ for being part of my life ❤️
+      <br />
+      I’m grateful for Us today, every day, every hour, every minute, and every second of my life❤️
+      <br /><br />
+      Happy New Year 🎇
+      <br />
+      С Новым Годом 🎇
+      <br />
+      Жаны Жылыбыз менен 🎇
+      <br />
+      Nice Senelere 🎇
+      <br />
+      Buon Anno 🎇
+      <br/ >
+      Amore Mio 💘
+    </p>
+  </div>
+
+  <script>
+    let current = 1;
+
+    function nextScreen() {
+      document.getElementById(`screen${current}`).classList.add('hidden');
+      current++;
+      document.getElementById(`screen${current}`).classList.remove('hidden');
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (4 + Math.random() * 3) + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }
+
+    setInterval(createHeart, 400);
+  </script>
+
+</body>
+</html>
