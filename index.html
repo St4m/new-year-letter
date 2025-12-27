@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,23 +37,45 @@
       animation: fadeIn 1.2s ease;
     }
 
+    @font-face {
+  font-family: mr_HamiltoneG;
+  src: url('mr_HamiltoneG Rus Regular.otf');
+}
+@font-face {
+  font-family: Champagne Royale;
+  src: url('Champagne Royale.ttf');
+}
+
+
     h1 {
-      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      font-family: mr_HamiltoneG  ;
+      font-size: clamp(1.5rem, 4vw, 1.8rem);
       margin-bottom: 16px;
     }
 
     p {
-      font-size: clamp(1rem, 3.5vw, 1.1rem);
+      font-family: Champagne Royale;
+      font-size: clamp(1.5rem, 3.5vw, 1.1rem);
       line-height: 1.6;
       margin-bottom: 20px;
     }
+
+    @media screen and (max-width: 900px) {
+  /* CSS styles to apply when the condition is TRUE */
+  h1 {
+      font-size: clamp(1.9rem, 4vw, 1.8rem);
+    }
+  p {
+      font-size: clamp(1.8rem, 3.5vw, 1.1rem);
+    }
+}
 
     .photo {
       width: 100%;
       max-width: 320px;
       border-radius: 18px;
       margin: 18px auto;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
     button {
@@ -89,14 +112,29 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes floatUp {
-      from { transform: translateY(0); opacity: 1; }
-      to { transform: translateY(-120vh); opacity: 0; }
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      to {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
     }
+
     .down-arrow {
       font-size: 2.2rem;
       font-weight: 100;
@@ -110,7 +148,7 @@
   <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
-  <button id="musicBtn" onclick="toggleMusic()">🔊 Music</button>
+  <button id="musicBtn" onclick="toggleMusic()">🔊</button>
 
   <!-- Screen 1 -->
   <section>
@@ -128,7 +166,7 @@
     <div class="container">
       <h1>Our First Full Year Together 🥹</h1>
       <p>
-        Every talk, every text, every second together was a blessing ❤️  
+        Every talk, every text, every second together was a blessing ❤️
         Being the reason for ✨Your✨ smile made my days brighter.
       </p>
       <span class="down-arrow">&#8595;</span>
@@ -145,7 +183,7 @@
         <br />
         the way ✨You✨ stand strong every day, even if it might feel like ✨You✨ are being lazy or unmotivated
         <br />
-        ✨You✨ are staying up and moving forward
+        ✨You✨ are staying up and moving forward,
         <br />
         there are no words that can express how I am proud and in Love with ✨You✨
       </p>
@@ -159,8 +197,8 @@
       <img src="Nighty_Angel.jpeg" class="photo" alt="Our memory">
       <h1>Our Dreams 🌙</h1>
       <p>
-        InshaAllah, this year will bring more love,  
-        more success, more laughter,  
+        InshaAllah, this year will bring more love,
+        more success, more laughter,
         and more moments together ❤️
       </p>
       <span class="down-arrow">&#8595;</span>
@@ -172,13 +210,13 @@
     <div class="container">
       <h1>Thank ✨You✨ ❤️</h1>
       <p>
-        I’m grateful for Us — every second of my life ❤️  
+        I’m grateful for Us — every second of my life ❤️
         <br><br>
-        Happy New Year 🎇  
-        <br />С Новым Годом 🎇  
-        <br />Жаны Жылыбыз менен 🎇  
-        <br />Nice Senelere 🎇  
-        <br />Buon Anno 🎇  
+        Happy New Year 🎇
+        <br />С Новым Годом 🎇
+        <br />Жаны Жылыбыз менен 🎇
+        <br />Nice Senelere 🎇
+        <br />Buon Anno 🎇
         <br><br>
         Amore Mio 💘
       </p>
@@ -208,14 +246,15 @@
       if (!playing) {
         music.play();
         playing = true;
-        musicBtn.innerText = '⏸ Music';
+        musicBtn.innerText = '⏸';
       } else {
         music.pause();
         playing = false;
-        musicBtn.innerText = '🔊 Music';
+        musicBtn.innerText = '🔊';
       }
     }
   </script>
 
 </body>
+
 </html>
