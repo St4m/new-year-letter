@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy New Year ❤️</title>
   <style>
+    .photo {
+      width: 100%;
+      width: 300px;
+      border-radius: 20px;
+      margin: 20px auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      animation: fadeIn 2s ease;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -30,7 +39,7 @@
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 1.5rem;
       margin-bottom: 20px;
     }
 
@@ -49,6 +58,10 @@
       font-size: 1rem;
       cursor: pointer;
       transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    #screen3 {
+      height: 100%;
     }
 
     button:hover {
@@ -87,18 +100,26 @@
 </head>
 <body>
 
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="Леонид Агутин & Анжелика Варум - Я буду всегда с тобой.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <button id="musicBtn" onclick="toggleMusic()" style="position:fixed;top:20px;right:20px;z-index:10;">🔊 Music</button>
+
+
   <div class="container" id="screen1">
-    <h1>Happy New Year, Жаным 🎆</h1>
+    <h1>Happy New Year ✨Жаным✨ 🎆</h1>
     <p>
       I know it is not much, but it would be impossible to not gift a person like ✨You✨ this year 💖
-      <br />
-      Please click the button and take a moment
+      <br /><br/>
     </p>
     <button onclick="nextScreen()">Click to continue</button>
   </div>
 
   <div class="container hidden" id="screen2">
-    <h1>About This Year 💖</h1>
+    <h1>This Year was our first full year being together 🥹</h1>
     <p>
       This year meant so much to me because of ✨You✨.
       <br />
@@ -110,6 +131,7 @@
   </div>
 
   <div class="container hidden" id="screen3">
+    <img src="Hime.jpeg" alt="Us together" class="photo" />
     <h1>What I Love About ✨You✨</h1>
     <p>
       I love the way you are,
@@ -124,6 +146,7 @@
   </div>
 
   <div class="container hidden" id="screen4">
+    <img src="Nighty_Angel.jpeg" alt="Our memory" class="photo" />
     <h1>InshaAllah and hopefully this year will be a great opportunity for Us to catch Our Dreams🌙</h1>
     <p>
       In the new year, I wish for more memorable and lovely memories,
@@ -179,6 +202,21 @@
     }
 
     setInterval(createHeart, 400);
+
+    const music = document.getElementById('bgMusic');
+    let playing = false;
+
+    function toggleMusic() {
+      if (!playing) {
+        music.play();
+        playing = true;
+        document.getElementById('musicBtn').innerText = '⏸ Music';
+      } else {
+        music.pause();
+        playing = false;
+        document.getElementById('musicBtn').innerText = '🔊 Music';
+      }
+    }
   </script>
 
 </body>
